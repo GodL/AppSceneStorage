@@ -1,6 +1,7 @@
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 
+import Foundation
 #if canImport(UIKit)
 import UIKit
 #endif
@@ -37,11 +38,16 @@ public struct AppSceneStorage {
   }
 }
 
-public extension UIKitSceneStorage {
+public extension AppSceneStorage {
+  
+  func register(_ value: Any, forKey defaultName: String) {
+    let key = _sceneKey(for: defaultName)
+    _sceneDefaults?.register(defaults: [key : value])
+  }
   
   func object(forKey defaultName: String) -> Any? {
     let key = _sceneKey(for: defaultName)
-    return _sceneDefaults?.object(forKey: defaultName) ?? standard.object(forKey: key)
+    return _sceneDefaults?.object(forKey: key) ?? standard.object(forKey: key)
   }
   
   func set(_ value: Any?, forKey defaultName: String) {
