@@ -1,0 +1,50 @@
+➜  ProPDF git:(dev) git add .
+g%                                                                         ➜  ProPDF git:(dev) ✗ git commit -m 'update thumbnail '
+[dev 5637378] update thumbnail
+ 25 files changed, 277 insertions(+), 74 deletions(-)
+➜  ProPDF git:(dev) git push origin dev
+Enumerating objects: 104, done.
+Counting objects: 100% (104/104), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (52/52), done.
+Writing objects: 100% (55/55), 9.08 KiB | 1.51 MiB/s, done.
+Total 55 (delta 37), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (37/37), completed with 36 local objects.
+remote: This repository moved. Please use the new location:
+remote:   git@github.com:GodL/Pronotes.git
+To github.com-personal:GodL/ProPDF.git
+   6d11d15..5637378  dev -> dev
+➜  ProPDF git:(dev) ..         
+➜  ProPDF git:(dev) ✗ vim .github/workflows/ios.yml 
+➜  ProPDF git:(dev) ✗ ls
+Makefile  ProPDF    README.md TestPlans
+➜  ProPDF git:(dev) ✗ ls
+Makefile  ProPDF    README.md TestPlans
+➜  ProPDF git:(dev) ✗ vim Makefile 
+➜  ProPDF git:(dev) ✗ vim .github/workflows/ios.yml  
+➜  ProPDF git:(dev) ✗ vim .github/workflows/ios.yml
+➜  ProPDF git:(dev) ✗ vim .github/workflows/format.yml 
+
+name: Swift Format
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: format-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  swift_format:
+    name: Run swift-format
+    runs-on: macos-15  # 或 macos-13/macos-15，视 Xcode 版本需求
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+
