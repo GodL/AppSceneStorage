@@ -5,7 +5,7 @@
 import UIKit
 #endif
 
-public struct UIKitSceneStorage {
+public struct AppSceneStorage {
   
   public let sceneID: String
   
