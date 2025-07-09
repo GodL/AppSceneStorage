@@ -11,17 +11,17 @@ import Foundation
 #if canImport(UIKit)
   import UIKit
 
-@UIKitSceneStorage
-class MyViewController: UIViewController {
-  
-  @SceneStorageKey("age", defaultValue: 24)
-  var age: Int
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    print(age)
-    age = 18
-    print(age)
+  @UIKitSceneStorage
+  class MyViewController: UIViewController {
+
+    @SceneStorageKey("age", defaultValue: 24)
+    var age: Int
+
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      print(age)
+      age = 18
+      print(age)
+    }
   }
-}
 #endif
