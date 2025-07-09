@@ -141,4 +141,3 @@ extension AppSceneStorage {
     standard.set(url, forKey: key)
   }
 }
-
