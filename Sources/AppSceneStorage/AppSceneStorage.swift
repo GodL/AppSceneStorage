@@ -29,7 +29,8 @@ extension AppSceneStorage {
 
   public func register(_ value: Any, forKey defaultName: String) {
     let key = _sceneKey(for: defaultName)
-    _sceneDefaults?.register(defaults: [key: value])
+    _sceneDefaults?.register(defaults: [key : value])
+    standard.register(defaults: [key : value])
   }
 
   public func object(forKey defaultName: String) -> Any? {
