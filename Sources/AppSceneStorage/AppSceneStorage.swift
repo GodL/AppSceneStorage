@@ -2,9 +2,7 @@
 // https://docs.swift.org/swift-book
 
 import Foundation
-#if canImport(UIKit)
-import UIKit
-#endif
+
 
 public struct AppSceneStorage {
   
@@ -21,16 +19,6 @@ public struct AppSceneStorage {
     self.sceneID = sceneID
     self._sceneDefaults = UserDefaults(suiteName: sceneID)
   }
-  
-  #if canImport(UIKit)
-  @available(iOS 13.0, *)
-  @MainActor
-  @inlinable
-  @inline(__always)
-  public init(scene: UIScene) {
-    self.init(sceneID: scene.session.persistentIdentifier)
-  }
-  #endif
   
   @usableFromInline
   func _sceneKey(for defaultKey: String) -> String {
@@ -154,3 +142,4 @@ public extension AppSceneStorage {
     standard.set(url, forKey: key)
   }
 }
+
