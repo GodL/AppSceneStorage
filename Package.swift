@@ -11,7 +11,8 @@ let package = Package(
     // Products define the executables and libraries a package produces, making them visible to other packages.
     .library(
       name: "AppSceneStorage",
-      targets: ["AppSceneStorage"])
+      targets: ["AppSceneStorage"]),
+    .library(name: "AppSceneStorageMacro", targets: ["AppSceneStorageMacro"]),
   ],
   dependencies: [
     .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "601.0.0-latest")
